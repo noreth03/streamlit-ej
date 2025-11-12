@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import numpy as np
+import tensorflow as tf
 
 url = 'https://tensorflow-serving-68jd.onrender.com/v1/models/linear-model:predict'
 
@@ -18,6 +19,9 @@ def predict():
   print(response.text)
   return response
 
+st.title('LINEAR MODEL CLIENT NORETH')
+st.write('y = 3.14 * X + 5.0')
+
 data = st.text_input('0, 1, 2')
 btnPredict = st.button('Predict')
 
@@ -25,3 +29,8 @@ if (btnPredict):
    prediction = predict()
    st.write(prediction)
    st.write(prediction.text)
+
+hello = tf.constant("holaaa tensorflow!!")
+print(hello)
+
+st.write(hello.numpy())
